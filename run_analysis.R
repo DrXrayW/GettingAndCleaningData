@@ -54,7 +54,7 @@ names(subject) <- c('subject')
 # Bind everything together as tidy data
 tidyData <- cbind(label, subject, data)
 # write as output
-write.table(tidyData, "tidydata.txt") 
+write.table(tidyData, "tidydata.txt", row.name = FALSE) 
 
 # Creates a second, independent tidy data set with the average of each variable for each activity and each subject 
 # Using dplyr package
@@ -63,5 +63,5 @@ groups = group_by(tidyData, activity, subject)
 tidymeans = summarize_each(groups, funs(mean))
 
 #write 
-write.table(tidymeans, "tidymeans.txt") 
+write.table(tidymeans, "tidymeans.txt", row.name = FALSE) 
 
